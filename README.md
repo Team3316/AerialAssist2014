@@ -1,14 +1,5 @@
-Robot code template
+FR4 Renovation project 
 ===
 
-This is DBug's new robot code template, based on the older
-one we have from 2015: [RobotBase](https://github.com/frc3316/RobotBase).
-
-This template includes:
- - Basic folder structure for using the Command-based approach
- - A custom logging framework
- - A configuration app, which is separate from the robot code for faster upload
-
-TODO: 
- - [ ] Add path planning & auto utilities
- - [ ] Make SDB better
+This is our - the new 2019 control group - try to make our 2014 robot, FR4, usable again and suitable for school events / casual playing.
+The codebase is based on our new robot base for 2019 which uses the Gradle build system instead of Ant, and is being developed using IntelliJ instead of Eclipse.

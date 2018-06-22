@@ -5,6 +5,20 @@ public class Utils {
     return ((x - a.x) * (a.y - b.y) / (a.x - b.x) + a.y);
   }
 
+  /**
+   * Maps a number, t, from the interval [l1, r1] to [l2, r2].
+   * @param t A number between l1 and r1
+   * @param l1 The first interval's left bound
+   * @param r1 The first interval's right bound
+   * @param l2 The second interval's left bound
+   * @param r2 The second interval's right bound
+   * @return A number between l2 and r2
+   */
+  public static double mapBetweenIntervals (double t, double l1, double r1, double l2, double r2) {
+    double c = (r2 - l2) / (r1 - l1);
+    return l2 + c * (t - l1);
+  }
+
   /*
    * returns a linear interpolation from a lookup table
    * assuming x=0 is for x values and x=1 is for y values

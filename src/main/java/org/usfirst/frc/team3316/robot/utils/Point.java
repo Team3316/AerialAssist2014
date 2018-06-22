@@ -1,9 +1,5 @@
 package org.usfirst.frc.team3316.robot.utils;
 
-/**
- * Point class for math calculations
- */
-
 public class Point {
   public double x, y;
 

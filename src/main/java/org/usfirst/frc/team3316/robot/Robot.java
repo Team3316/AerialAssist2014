@@ -11,6 +11,7 @@ import org.usfirst.frc.team3316.robot.humanIO.SDB;
 import org.usfirst.frc.team3316.robot.logger.DBugLogger;
 import org.usfirst.frc.team3316.robot.robotIO.Actuators;
 import org.usfirst.frc.team3316.robot.robotIO.Sensors;
+import org.usfirst.frc.team3316.robot.subsystems.kicker.Kicker;
 
 /**
  * The VM is configured to automatically run this class, and to call the
@@ -38,6 +39,7 @@ public class Robot extends IterativeRobot {
   /*
    * Subsystems
    */
+  public static Kicker kicker;
 
   Command autonomousCommand;
 
@@ -67,7 +69,7 @@ public class Robot extends IterativeRobot {
     /*
      * Subsystems
      */
-
+    kicker = new Kicker();
 
     /*
      * Human IO (that requires subsystems)
