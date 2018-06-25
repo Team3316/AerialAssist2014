@@ -48,34 +48,38 @@ public class Robot extends IterativeRobot {
    * used for any initialization code.
    */
   public void robotInit () {
-    /*
-     * Above all else
-     */
-    logger = new DBugLogger();
-    config = new Config();
-    timer = new Timer();
+    try {
+      /*
+       * Above all else
+       */
+      logger = new DBugLogger();
+      config = new Config();
+      timer = new Timer();
 
-    /*
-     * Human IO (that does not require subsystems)
-     */
-    joysticks = new Joysticks();
+      /*
+       * Human IO (that does not require subsystems)
+       */
+      joysticks = new Joysticks();
 
-    /*
-     * Robot IO
-     */
-    actuators = new Actuators();
-    sensors = new Sensors();
+      /*
+       * Robot IO
+       */
+      actuators = new Actuators();
+      sensors = new Sensors();
 
-    /*
-     * Subsystems
-     */
-    kicker = new Kicker();
+      /*
+       * Subsystems
+       */
+      kicker = new Kicker();
 
-    /*
-     * Human IO (that requires subsystems)
-     */
-    joysticks.initButtons();
-    sdb = new SDB();
+      /*
+       * Human IO (that requires subsystems)
+       */
+      joysticks.initButtons();
+      sdb = new SDB();
+    } catch (Exception e) {
+      logger.severe(e);
+    }
   }
 
   public void disabledPeriodic () {
