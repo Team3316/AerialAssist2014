@@ -16,25 +16,29 @@ public class KickerTask extends TimerTask {
   }
 
   private void runCommandOfState (KickerState state) {
-    switch (state) {
-      case OFF:
-        Robot.kicker.move(0);
-      case ZERO:
-        if (this.manager.zeroCommand == null) {
-          this.manager.zeroCommand = new KickerZero();
-          this.manager.zeroCommand.start();
-        }
-      case SHAKEN:
-        if (this.manager.shakenCommand == null) {
-          double currentAngle = Robot.kicker.getAngle();
-          this.manager.shakenCommand = new KickerShaken(currentAngle);
-          this.manager.shakenCommand.start();
-        }
-      case RESTING:
-        if (this.manager.restingCommand == null) {
-          this.manager.restingCommand = new KickerResting();
-          this.manager.restingCommand.start();
-        }
+    try {
+      switch (state) {
+        case OFF:
+          Robot.kicker.move(0);
+        case ZERO:
+          if (this.manager.zeroCommand == null) {
+            this.manager.zeroCommand = new KickerZero();
+            this.manager.zeroCommand.start();
+          }
+        case SHAKEN:
+          if (this.manager.shakenCommand == null) {
+            double currentAngle = Robot.kicker.getAngle();
+            this.manager.shakenCommand = new KickerShaken(currentAngle);
+            this.manager.shakenCommand.start();
+          }
+        case RESTING:
+          if (this.manager.restingCommand == null) {
+            this.manager.restingCommand = new KickerResting();
+            this.manager.restingCommand.start();
+          }
+      }
+    } catch (Exception e) {
+      Robot.logger.severe(e);
     }
   }
 }

@@ -12,4 +12,9 @@ public class KickerMotion {
     Knot end = new Knot(-1, 0.5);
     return new Trajectory(start, end);
   }
+
+  public static Trajectory kickTrajectory () {
+    Knot goal = new Knot(225, 0.5);
+    return new Trajectory(goal);
+  }
 }

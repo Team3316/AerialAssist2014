@@ -52,7 +52,7 @@ public class Trajectory {
     return t3 + t2 + t1;
   }
 
-  private double fitAngle (double t) {
+  public double fitAngle (double t) {
     double a0 = this._startAngle.getAngle(),
            da0 = this._inter1.getAngle(),
            da1 = this._inter2.getAngle(),
@@ -61,7 +61,7 @@ public class Trajectory {
     return positionFitting(t, vec);
   }
 
-  private double fitAngularVelocity (double t) {
+  public double fitAngularVelocity (double t) {
     double a0 = this._startAngle.getAngle(),
            da0 = this._inter1.getAngle(),
            da1 = this._inter2.getAngle(),
@@ -74,7 +74,7 @@ public class Trajectory {
     for (int i = 0; i < Trajectory.NUM_OF_SAMPLES + 1; i++) {
       // TODO - Make this work for start time more than 0
       double x = ((double) i) / Trajectory.NUM_OF_SAMPLES;
-      this._positionPoints[i][0] = x * this._endAngle.getTime();
+      this._positionPoints[i][0] = x * this._endAngle.getTime() + this._startAngle.getTime();
       this._positionPoints[i][1] = this.fitAngle(x);
     }
     return this._positionPoints;
@@ -109,8 +109,9 @@ public class Trajectory {
   }
 
   public static void main (String[] args) {
-    Knot goal = new Knot(45, 9);
-    Trajectory trajectory = new Trajectory(goal);
+    Knot start = new Knot(0.25, 0);
+    Knot goal = new Knot(0.9, 0.5);
+    Trajectory trajectory = new Trajectory(start, goal);
     trajectory.fitPositionCurve();
     trajectory.fitVelocityCurve();
     System.out.println(trajectory);

@@ -8,6 +8,7 @@ import edu.wpi.first.wpilibj.DigitalInput;
 import edu.wpi.first.wpilibj.Encoder;
 import org.usfirst.frc.team3316.robot.Robot;
 import org.usfirst.frc.team3316.robot.config.Config;
+import org.usfirst.frc.team3316.robot.config.Config.ConfigException;
 import org.usfirst.frc.team3316.robot.logger.DBugLogger;
 
 public class Sensors 
@@ -21,13 +22,13 @@ public class Sensors
   public Encoder kickerEncoder;
   public DigitalInput kickerRestingHE;
 	
-	public Sensors () {
+	public Sensors () throws ConfigException {
 		if (config.robotA) {
 		  this.kickerSensorsA();
     }
 	}
 
-	private void kickerSensorsA () {
+	private void kickerSensorsA () throws ConfigException {
 	  this.kickerEncoder = new Encoder(
 	      (int) config.get("kicker.encoder.channelA"),
 	      (int) config.get("kicker.encoder.channelB"),

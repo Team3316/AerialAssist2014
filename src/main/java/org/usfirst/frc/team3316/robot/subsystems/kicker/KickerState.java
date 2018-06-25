@@ -4,5 +4,6 @@ public enum KickerState {
   OFF,
   ZERO,
   SHAKEN,
+  RESTING,
   KICKING
 }

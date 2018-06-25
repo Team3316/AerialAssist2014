@@ -1,13 +1,13 @@
 package org.usfirst.frc.team3316.robot.commands.kicker;
 
 import org.usfirst.frc.team3316.robot.Robot;
-import org.usfirst.frc.team3316.robot.commands.DBugCommand;
+import org.usfirst.frc.team3316.robot.config.Config.ConfigException;
 import org.usfirst.frc.team3316.robot.subsystems.kicker.KickerState;
 
 /**
  * Bang-bang control on the kicker's position for holding it in place while driving.
  */
-public class KickerShaken extends DBugCommand {
+public class KickerShaken extends KickerCommand {
   private double setpoint, voltage, tolerance;
 
   public KickerShaken (double setpoint) {
@@ -16,10 +16,9 @@ public class KickerShaken extends DBugCommand {
   }
 
   @Override
-  protected void init () {
+  protected void init () throws ConfigException {
     this.voltage = (double) Robot.config.get("kicker.shaken.voltage");
     this.tolerance = (double) Robot.config.get("kicker.shaken.tolerance");
-    Robot.kicker.setState(KickerState.SHAKEN);
   }
 
   @Override
@@ -40,8 +39,7 @@ public class KickerShaken extends DBugCommand {
 
   @Override
   protected void fin () {
-    Robot.kicker.resetEncoder();
-    Robot.kicker.setState(KickerState.OFF);
+    this.manager.setState(KickerState.RESTING);
   }
 
   @Override

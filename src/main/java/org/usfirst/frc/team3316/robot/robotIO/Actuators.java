@@ -6,6 +6,7 @@ package org.usfirst.frc.team3316.robot.robotIO;
 import edu.wpi.first.wpilibj.Talon;
 import org.usfirst.frc.team3316.robot.Robot;
 import org.usfirst.frc.team3316.robot.config.Config;
+import org.usfirst.frc.team3316.robot.config.Config.ConfigException;
 import org.usfirst.frc.team3316.robot.logger.DBugLogger;
 
 public class Actuators {
@@ -17,13 +18,13 @@ public class Actuators {
    */
   public Talon kickerLeftCIM, kickerLeftMiniCIM, kickerRightCIM, kickerRightMiniCIM;
 
-  public Actuators () {
+  public Actuators () throws ConfigException {
     if (config.robotA) {
       this.kickerActuatorsA();
     }
   }
 
-  private void kickerActuatorsA () {
+  private void kickerActuatorsA () throws ConfigException {
     this.kickerLeftCIM = new Talon((int) config.get("kicker.motors.leftCIM"));
     this.kickerLeftMiniCIM = new Talon((int) config.get("kicker.motors.leftMiniCIM"));
     this.kickerRightCIM = new Talon((int) config.get("kicker.motors.rightCIM"));
