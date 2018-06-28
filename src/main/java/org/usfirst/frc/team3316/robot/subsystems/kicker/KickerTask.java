@@ -2,6 +2,7 @@ package org.usfirst.frc.team3316.robot.subsystems.kicker;
 
 import java.util.TimerTask;
 import org.usfirst.frc.team3316.robot.Robot;
+import org.usfirst.frc.team3316.robot.commands.kicker.KickerKick;
 import org.usfirst.frc.team3316.robot.commands.kicker.KickerResting;
 import org.usfirst.frc.team3316.robot.commands.kicker.KickerShaken;
 import org.usfirst.frc.team3316.robot.commands.kicker.KickerZero;
@@ -35,6 +36,11 @@ public class KickerTask extends TimerTask {
           if (this.manager.restingCommand == null) {
             this.manager.restingCommand = new KickerResting();
             this.manager.restingCommand.start();
+          }
+        case KICKING:
+          if (this.manager.kickCommand == null) {
+            this.manager.kickCommand = new KickerKick();
+            this.manager.kickCommand.start();
           }
       }
     } catch (Exception e) {

@@ -32,9 +32,10 @@ public class Sensors
 	  this.kickerEncoder = new Encoder(
 	      (int) config.get("kicker.encoder.channelA"),
 	      (int) config.get("kicker.encoder.channelB"),
-        false, EncodingType.k4X
+        false, EncodingType.k1X
     );
 	  this.kickerEncoder.setDistancePerPulse((double) config.get("kicker.encoder.distPerPulse"));
+	  this.kickerEncoder.reset();
 
 	  this.kickerRestingHE = new DigitalInput((int) Robot.config.get("kicker.restingHallEffect"));
   }

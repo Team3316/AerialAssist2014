@@ -1,4 +1,4 @@
-package org.usfirst.frc.team3316.robot.utils;
+package org.usfirst.frc.team3316.robot.motion;
 
 /**
  * Knot class for kicker trajectory

@@ -4,7 +4,7 @@ import org.usfirst.frc.team3316.robot.Robot;
 import org.usfirst.frc.team3316.robot.config.Config.ConfigException;
 import org.usfirst.frc.team3316.robot.subsystems.kicker.KickerMotion;
 import org.usfirst.frc.team3316.robot.subsystems.kicker.KickerState;
-import org.usfirst.frc.team3316.robot.utils.Trajectory;
+import org.usfirst.frc.team3316.robot.motion.Trajectory;
 
 public class KickerKick extends KickerCommand {
   private Trajectory trajectory;

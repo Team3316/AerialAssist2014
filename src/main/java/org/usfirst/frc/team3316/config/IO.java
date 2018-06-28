@@ -19,6 +19,9 @@ public class IO {
 	public static Map<String, Integer> pdpA = new HashMap<>();
 	public static Map<String, Integer> pdpB = new HashMap<>();
 
+	public static Map<String, Integer> pcmA = new HashMap<>();
+  public static Map<String, Integer> pcmB = new HashMap<>();
+
 	/**
 	 * Finds the key that is mapped to a specified channel in the parameter map.
 	 *
@@ -178,6 +181,20 @@ public class IO {
 		putB(pdpB, name, channel);
 	}
 
+  /**
+   * Put method for pdp channels. Read the documentation of the put method.
+   */
+  private static void putPCMA(String name, int channel) throws Exception {
+    putA(pcmA, name, channel);
+  }
+
+  /**
+   * Put method for pdp channels. Read the documentation of the put method.
+   */
+  private static void putPCMB(String name, int channel) throws Exception {
+    putB(pcmB, name, channel);
+  }
+
 	public static void initIO() {
 		try {
 			/*
@@ -188,66 +205,21 @@ public class IO {
 				 * Robot A
 				 */
 				{
-					// Chassis
-					// Left front
-					putCANA("CHASSIS_MOTOR_LEFT_1", 2);
-					// Left back
-					putCANA("CHASSIS_MOTOR_LEFT_2", 3);
-					// Right front
-					putCANA("CHASSIS_MOTOR_RIGHT_1", 12);
-					// Right back
-					putCANA("CHASSIS_MOTOR_RIGHT_2", 13);
-
-					// Intake
-					// Left
-					putPWMA("INTAKE_MOTOR_LEFT", 2);
-					// Right
-					putPWMA("INTAKE_MOTOR_RIGHT", 1);
-
-					// Elevator
-					// Left front
-					putCANA("ELEVATOR_MOTOR_1", 14);
-					// Left back
-					putCANA("ELEVATOR_MOTOR_2", 15);
-
-					// Holder
-					putPWMA("HOLDER_MOTOR", 0);
-					putPWMA("HOLDER_SERVO", 4);
-
-
-					// OTHER
-					Config.addToConstants("PCM_CAN_ID", 1);
+				  // Kicker
+					// Left side CIM
+          putPWMA("kicker.motors.leftCIM", 6);
+          // Left side Mini CIM
+          putPWMA("kicker.motors.leftMiniCIM", 9);
+          // Right side CIM
+          putPWMA("kicker.motors.rightCIM", 4);
+          // Right side Mini CIM
+          putPWMA("kicker.motors.rightMiniCIM", 5);
 				}
 
 				/*
 				 * Robot B
 				 */
 				{
-					// Chassis
-					// Left front
-					putCANB("CHASSIS_MOTOR_LEFT_1", 13);
-					// Left back
-					putCANB("CHASSIS_MOTOR_LEFT_2", 12);
-					// Right front
-					putCANB("CHASSIS_MOTOR_RIGHT_1", 15);
-					// Right back
-					putCANB("CHASSIS_MOTOR_RIGHT_2", 14);
-
-					// Intake
-					// Left
-					putPWMB("INTAKE_MOTOR_LEFT", 2);
-					// Right
-					putPWMB("INTAKE_MOTOR_RIGHT", 1);
-
-					// Elevator
-					// Left front
-					putCANB("ELEVATOR_MOTOR_1", 2);
-					// Left back
-					putCANB("ELEVATOR_MOTOR_2", 3);
-
-					// Holder
-					putPWMB("HOLDER_MOTOR", 0);
-					putPWMB("HOLDER_SERVO", 3);
 				}
 			}
 
@@ -259,48 +231,16 @@ public class IO {
 				 * Robot A
 				 */
 				{
-					// Chassis
-					putDIOA("CHASSIS_LEFT_ENCODER_CHANNEL_A", 0);
-					putDIOA("CHASSIS_LEFT_ENCODER_CHANNEL_B", 1);
-
-					putDIOA("CHASSIS_RIGHT_ENCODER_CHANNEL_A", 3);
-					putDIOA("CHASSIS_RIGHT_ENCODER_CHANNEL_B", 2);
-
-					// Elevator
-					putDIOA("ELEVATOR_ENCODER_CHANNEL_A", 5);
-					putDIOA("ELEVATOR_ENCODER_CHANNEL_B", 4);
-
-					putDIOA("ELEVATOR_BOTTOM_HE", 6);
-					putDIOA("ELEVATOR_BP_BOTTOM_HE", 9);
-					putDIOA("ELEVATOR_BP_TOP_HE", 10);
-					putDIOA("ELEVATOR_TOP_HE", 8);
-
-					// Holder
-					putDIOA("HOLDER_LIMIT_SWITCH", 7);
+					// Kicker
+					putDIOA("kicker.encoder.channelA", 6);
+          putDIOA("kicker.encoder.channelB", 6);
+          putDIOA("kicker.restingHallEffect", 0);
 				}
 
 				/*
 				 * Robot B
 				 */
 				{
-					// Chassis
-					putDIOB("CHASSIS_LEFT_ENCODER_CHANNEL_A", 9);
-					putDIOB("CHASSIS_LEFT_ENCODER_CHANNEL_B", 8);
-
-					putDIOB("CHASSIS_RIGHT_ENCODER_CHANNEL_A", 7);
-					putDIOB("CHASSIS_RIGHT_ENCODER_CHANNEL_B", 6);
-
-					// Elevator
-					putDIOB("ELEVATOR_ENCODER_CHANNEL_A", 5);
-					putDIOB("ELEVATOR_ENCODER_CHANNEL_B", 4);
-
-					putDIOB("ELEVATOR_BOTTOM_HE", 1);
-					putDIOB("ELEVATOR_BP_BOTTOM_HE", 2);
-					putDIOB("ELEVATOR_BP_TOP_HE", 3);
-					putDIOB("ELEVATOR_TOP_HE", 0);
-
-					// Holder
-					putDIOB("HOLDER_LIMIT_SWITCH", 10);
 				}
 			}
 
@@ -329,24 +269,12 @@ public class IO {
 				 * Robot A
 				 */
 				{
-					putPDPA("CHASSIS_MOTOR_LEFT_1_PDP_CHANNEL", 2);
-					putPDPA("CHASSIS_MOTOR_LEFT_2_PDP_CHANNEL", 3);
-					putPDPA("CHASSIS_MOTOR_RIGHT_1_PDP_CHANNEL", 12);
-					putPDPA("CHASSIS_MOTOR_RIGHT_2_PDP_CHANNEL", 13);
-					putPDPA("ELEVATOR_MOTOR_1_PDP_CHANNEL", 14);
-					putPDPA("ELEVATOR_MOTOR_2_PDP_CHANNEL", 15);
 				}
 
 				/*
 				 * Robot B
 				 */
 				{
-					putPDPB("CHASSIS_MOTOR_LEFT_1_PDP_CHANNEL", 13);
-					putPDPB("CHASSIS_MOTOR_LEFT_2_PDP_CHANNEL", 12);
-					putPDPB("CHASSIS_MOTOR_RIGHT_1_PDP_CHANNEL", 15);
-					putPDPB("CHASSIS_MOTOR_RIGHT_2_PDP_CHANNEL", 14);
-					putPDPB("ELEVATOR_MOTOR_1_PDP_CHANNEL", 2);
-					putPDPB("ELEVATOR_MOTOR_2_PDP_CHANNEL", 3);
 				}
 			}
 
@@ -358,8 +286,7 @@ public class IO {
 				 * Robot A
 				 */
 				{
-					Config.addToConstants("ELEVATOR_SHIFTER_FORWARD", 0);
-					Config.addToConstants("ELEVATOR_SHIFTER_REVERSE", 1);
+
 				}
 
 				/*

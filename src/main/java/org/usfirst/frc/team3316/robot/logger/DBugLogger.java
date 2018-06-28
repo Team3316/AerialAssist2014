@@ -14,7 +14,7 @@ import java.util.logging.Logger;
 
 public class DBugLogger extends Logger {
 
-  private static String name = "";
+  private static String mLoggerName = "";
 
   private class DBugFormatter extends Formatter {
     public String format (LogRecord record) {
@@ -24,7 +24,7 @@ public class DBugLogger extends Logger {
   }
 
   public DBugLogger () {
-    super(name, null);
+    super(mLoggerName, null);
 
     Handler[] handlers = this.getHandlers();
     for (int i = 0; i < handlers.length; i++) {
@@ -39,9 +39,7 @@ public class DBugLogger extends Logger {
       this.addHandler(fh);
       DBugFormatter formatter = new DBugFormatter();
       fh.setFormatter(formatter);
-    } catch (SecurityException e) {
-      e.printStackTrace();
-    } catch (IOException e) {
+    } catch (Exception e) {
       e.printStackTrace();
     }
   }

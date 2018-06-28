@@ -110,6 +110,14 @@ public class Robot extends IterativeRobot {
     LiveWindow.run();
   }
 
+  public static synchronized Timer getTimer () {
+    if (timer == null) {
+      timer = new Timer(true);
+    }
+
+    return timer;
+  }
+
   private void printTheTruth () {
     System.out.println("Vita is the Melech!!");
   }
