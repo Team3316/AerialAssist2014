@@ -15,6 +15,10 @@ public class KickerShaken extends KickerCommand {
     this.setpoint = setpoint;
   }
 
+  public KickerShaken () {
+    this(Robot.kicker.getAngle());
+  }
+
   @Override
   protected void init () throws ConfigException {
     this.voltage = (double) Robot.config.get("kicker.shaken.voltage");

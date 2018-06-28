@@ -9,6 +9,10 @@ import java.util.Map.Entry;
 import java.util.Set;
 import java.util.TimerTask;
 import org.usfirst.frc.team3316.robot.Robot;
+import org.usfirst.frc.team3316.robot.commands.kicker.KickerKick;
+import org.usfirst.frc.team3316.robot.commands.kicker.KickerShaken;
+import org.usfirst.frc.team3316.robot.commands.kicker.KickerZero;
+import org.usfirst.frc.team3316.robot.commands.sequences.KickSequence;
 import org.usfirst.frc.team3316.robot.config.Config;
 import org.usfirst.frc.team3316.robot.config.Config.ConfigException;
 import org.usfirst.frc.team3316.robot.logger.DBugLogger;
@@ -108,6 +112,15 @@ public class SDB {
 
   private void initSDB () {
     SmartDashboard.putData(new UpdateVariablesInConfig()); //NEVER REMOVE THIS COMMAND
+
+    try {
+      SmartDashboard.putData("Kicker Kick", new KickerKick());
+      SmartDashboard.putData("Kicker Zero", new KickerZero());
+      SmartDashboard.putData("Kicker Shaken", new KickerShaken());
+      SmartDashboard.putData("Kick Sequence", new KickSequence());
+    } catch (ConfigException e) {
+      e.printStackTrace();
+    }
 
     logger.info("Finished initSDB()");
   }

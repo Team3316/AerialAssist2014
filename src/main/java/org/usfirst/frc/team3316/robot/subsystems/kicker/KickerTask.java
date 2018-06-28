@@ -28,8 +28,7 @@ public class KickerTask extends TimerTask {
           }
         case SHAKEN:
           if (this.manager.shakenCommand == null) {
-            double currentAngle = Robot.kicker.getAngle();
-            this.manager.shakenCommand = new KickerShaken(currentAngle);
+            this.manager.shakenCommand = new KickerShaken();
             this.manager.shakenCommand.start();
           }
         case RESTING:
