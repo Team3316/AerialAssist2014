@@ -12,6 +12,7 @@ import org.usfirst.frc.team3316.robot.logger.DBugLogger;
 import org.usfirst.frc.team3316.robot.robotIO.Actuators;
 import org.usfirst.frc.team3316.robot.robotIO.Sensors;
 import org.usfirst.frc.team3316.robot.subsystems.kicker.Kicker;
+import org.usfirst.frc.team3316.robot.subsystems.kicker.KickerManager;
 
 /**
  * The VM is configured to automatically run this class, and to call the
@@ -76,7 +77,12 @@ public class Robot extends IterativeRobot {
        * Human IO (that requires subsystems)
        */
       joysticks.initButtons();
+
+      /*
+       * SDB
+       */
       sdb = new SDB();
+      sdb.timerInit();
     } catch (Exception e) {
       logger.severe(e);
     }

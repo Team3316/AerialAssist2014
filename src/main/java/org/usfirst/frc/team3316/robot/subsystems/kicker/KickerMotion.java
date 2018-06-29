@@ -8,13 +8,12 @@ import org.usfirst.frc.team3316.robot.motion.Trajectory;
  */
 public class KickerMotion {
   public static Trajectory zeroTrajectory () {
-    Knot start = new Knot(1, 0);
-    Knot end = new Knot(-1, 0.75);
-    return new Trajectory(start, end);
+    Knot end = new Knot(-0.75, 1.25);
+    return new Trajectory(end);
   }
 
   public static Trajectory kickTrajectory () {
-    Knot goal = new Knot(225, 0.75);
+    Knot goal = new Knot(1.0, 0.5);
     return new Trajectory(goal);
   }
 }

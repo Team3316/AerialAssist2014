@@ -29,7 +29,6 @@ public class KickerManager {
 
   private KickerManager () {
     this._state = KickerState.OFF;
-    timerInit();
   }
 
   /**
@@ -81,7 +80,7 @@ public class KickerManager {
     return this._state;
   }
 
-  private void timerInit () {
+  public void timerInit () {
     this._task = new KickerTask();
     Robot.getTimer().schedule(this._task, 0, 20);
   }

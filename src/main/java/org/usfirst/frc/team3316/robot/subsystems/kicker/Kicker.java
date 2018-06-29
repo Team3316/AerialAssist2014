@@ -5,7 +5,6 @@ import org.usfirst.frc.team3316.robot.commands.kicker.KickerShaken;
 import org.usfirst.frc.team3316.robot.subsystems.DBugSubsystem;
 
 public class Kicker extends DBugSubsystem {
-
   @Override
   public void initDefaultCommand () {
     setDefaultCommand(new KickerShaken(0.0));
@@ -32,6 +31,6 @@ public class Kicker extends DBugSubsystem {
   }
 
   public boolean isResting () {
-    return Robot.sensors.kickerRestingHE.get();
+    return !Robot.sensors.kickerRestingHE.get();
   }
 }

@@ -57,7 +57,7 @@ public class SDB {
 
   private Hashtable<String, Class<?>> variablesInSDB;
 
-  public SDB () {
+  public SDB () throws ConfigException {
     variablesInSDB = new Hashtable<String, Class<?>>();
 
     initSDB();
@@ -66,7 +66,7 @@ public class SDB {
 
   public void timerInit () {
     updateSDBTask = new UpdateSDBTask();
-    Robot.timer.schedule(updateSDBTask, 0, 100);
+    Robot.getTimer().schedule(updateSDBTask, 0, 100);
   }
 
   /**
@@ -110,17 +110,13 @@ public class SDB {
     return variablesInSDB.entrySet();
   }
 
-  private void initSDB () {
+  private void initSDB () throws ConfigException {
     SmartDashboard.putData(new UpdateVariablesInConfig()); //NEVER REMOVE THIS COMMAND
 
-    try {
-      SmartDashboard.putData("Kicker Kick", new KickerKick());
-      SmartDashboard.putData("Kicker Zero", new KickerZero());
-      SmartDashboard.putData("Kicker Shaken", new KickerShaken());
-      SmartDashboard.putData("Kick Sequence", new KickSequence());
-    } catch (ConfigException e) {
-      e.printStackTrace();
-    }
+    SmartDashboard.putData("Kicker Kick", new KickerKick());
+    SmartDashboard.putData("Kicker Zero", new KickerZero());
+    SmartDashboard.putData("Kicker Shaken", new KickerShaken());
+    SmartDashboard.putData("Kick Sequence", new KickSequence());
 
     logger.info("Finished initSDB()");
   }

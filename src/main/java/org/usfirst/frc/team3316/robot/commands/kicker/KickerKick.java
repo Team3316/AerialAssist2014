@@ -24,7 +24,7 @@ public class KickerKick extends KickerCommand {
 
   @Override
   protected void execute () {
-    double t = timeSinceInitialized();
+    double t = timeSinceInitialized() / this.timeout;
     double v = this.trajectory.fitAngle(t) * this.normal;
     Robot.kicker.move(v);
   }
