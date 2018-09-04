@@ -21,10 +21,16 @@ public class Sensors
    */
   public Encoder kickerEncoder;
   public DigitalInput kickerRestingHE;
-	
+
+	/**
+	 * Gripper
+	 */
+	public DigitalInput gripperLeftSwitch, gripperMiddleSwitch, gripperRightSwitch;
+
 	public Sensors () throws ConfigException {
 		if (config.robotA) {
 		  this.kickerSensorsA();
+		  this.gripperSensorsA();
     }
 	}
 
@@ -37,6 +43,12 @@ public class Sensors
 	  this.kickerEncoder.setDistancePerPulse((double) config.get("kicker.encoder.distPerPulse"));
 	  this.kickerEncoder.reset();
 
-	  this.kickerRestingHE = new DigitalInput((int) Robot.config.get("kicker.restingHallEffect"));
+	  this.kickerRestingHE = new DigitalInput((int) config.get("kicker.restingHallEffect"));
   }
+
+  private void gripperSensorsA () throws ConfigException {
+		this.gripperLeftSwitch = new DigitalInput((int) config.get("gripper.switches.left"));
+		this.gripperMiddleSwitch = new DigitalInput((int) config.get("gripper.switches.middle"));
+		this.gripperRightSwitch = new DigitalInput((int) config.get("gripper.switches.right"));
+	}
 }

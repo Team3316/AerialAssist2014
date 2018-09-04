@@ -19,21 +19,47 @@ public class GripperAction extends DBugCommand {
 
   @Override
   protected void execute () {
-    if (this.type == GripperActionType.EXTEND) {
-      Robot.gripper.extendGripper();
-    } else {
-      Robot.gripper.retractGripper();
+    switch (this.type) {
+      case EXTEND:
+        Robot.gripper.extendGripper();
+        return;
+      case RETRACT:
+        Robot.gripper.retractGripper();
+        return;
+      case ROLLIN:
+        Robot.gripper.rollIn();
+        return;
+      case ROLLOUT:
+        Robot.gripper.rollOut();
+        return;
+      case STOP:
+        Robot.gripper.stopRolling();
+        return;
+      default:
+        Robot.gripper.stopRolling();
+        return;
     }
   }
 
   @Override
   protected boolean isFinished () {
-    return false;
+    switch (this.type) {
+      case ROLLIN: return Robot.gripper.isBallIn();
+      case ROLLOUT: return !Robot.gripper.isBallIn();
+      default: return true;
+    }
   }
 
   @Override
   protected void fin () {
-
+    switch (this.type) {
+      case ROLLIN:
+      case ROLLOUT:
+        Robot.gripper.stopRolling();
+        return;
+      default:
+          return;
+    }
   }
 
   @Override

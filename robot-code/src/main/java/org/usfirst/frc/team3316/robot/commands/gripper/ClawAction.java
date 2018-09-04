@@ -28,7 +28,7 @@ public class ClawAction extends DBugCommand {
 
   @Override
   protected boolean isFinished () {
-    return false;
+    return true;
   }
 
   @Override

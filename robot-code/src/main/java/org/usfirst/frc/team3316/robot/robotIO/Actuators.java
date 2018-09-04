@@ -39,6 +39,7 @@ public class Actuators {
    * Gripper
    */
   public DoubleSolenoid gripperSolenoid, clawSolenoid;
+  public Talon gripperLeft, gripperRight;
 
   public Actuators () throws ConfigException {
     if (config.robotA) {
@@ -81,6 +82,9 @@ public class Actuators {
         (int) config.get("claw.solenoid.forward"),
         (int) config.get("claw.solenoid.backward")
     );
+
+    this.gripperLeft = new Talon((int) config.get("gripper.motors.left"));
+    this.gripperRight = new Talon((int) config.get("gripper.motors.right"));
   }
 
   private void generalActuatorsA () throws ConfigException {

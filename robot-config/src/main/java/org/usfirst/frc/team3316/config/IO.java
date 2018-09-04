@@ -224,6 +224,10 @@ public class IO {
           putPWMA("kicker.motors.rightCIM", 4);
           // Right side Mini CIM
           putPWMA("kicker.motors.rightMiniCIM", 5);
+
+          // Gripper
+					putPWMA("gripper.motors.left", 7);
+					putPWMA("gripper.motors.right", 2);
 				}
 
 				/*
@@ -245,6 +249,11 @@ public class IO {
 					putDIOA("kicker.encoder.channelA", 6);
           putDIOA("kicker.encoder.channelB", 7);
           putDIOA("kicker.restingHallEffect", 0);
+
+          // Gripper
+					putDIOA("gripper.switches.left", 2);
+					putDIOA("gripper.switches.middle", 3);
+					putDIOA("gripper.switches.right", 1);
 				}
 
 				/*
@@ -298,8 +307,10 @@ public class IO {
 				{
 					putPCMA("defender.solenoid.forward", 6);
 					putPCMA("defender.solenoid.backward", 4);
+
 					putPCMA("gripper.solenoid.forward", 5);
 					putPCMA("gripper.solenoid.backward", 7);
+
 					putPCMA("claw.solenoid.forward", 1);
 					putPCMA("claw.solenoid.backward", 0);
 				}

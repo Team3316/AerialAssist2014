@@ -147,7 +147,7 @@ public class Config {
         addToConstants("kicker.kick.timeout", 0.75);
 
         addToConstants("kicker.shaken.voltage", -0.3316);
-        addToConstants("kicker.shaken.tolerance", 3);
+        addToConstants("kicker.shaken.tolerance", 3.0);
 
         addToConstants("kicker.zero.voltage", 0.8);
         addToConstants("kicker.zero.duration", 0.75);
@@ -157,6 +157,19 @@ public class Config {
        * Variables
        */
       {
+      }
+    }
+
+    /*
+     * Gripper
+     */
+    {
+      /*
+       * Constants
+       */
+      {
+        addToConstants("gripper.collection.voltage", 0.82);
+        addToConstants("gripper.ejection.voltage", -0.82);
       }
     }
   }
