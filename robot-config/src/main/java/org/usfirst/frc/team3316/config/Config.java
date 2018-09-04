@@ -90,9 +90,9 @@ public class Config {
          * Joysticks
          */
         {
-          addToConstants("JOYSTICK_LEFT", 0);
-          addToConstants("JOYSTICK_RIGHT", 1);
-          addToConstants("JOYSTICK_OPERATOR", 2);
+          addToConstants("joysticks.left", 0);
+          addToConstants("joysticks.right", 1);
+          addToConstants("joysticks.operator", 2);
         }
 
         /*

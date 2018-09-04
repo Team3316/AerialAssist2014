@@ -205,6 +205,16 @@ public class IO {
 				 * Robot A
 				 */
 				{
+				  // Chassis
+					// Left side CIMs
+					putPWMA("chassis.motors.leftCIM", 1);
+					// Left side Mini CIM
+					putPWMA("chassis.motors.leftMiniCIM", 8);
+					// Right side CIMs
+					putPWMA("chassis.motors.rightCIM", 0);
+					// Right side Mini CIM
+					putPWMA("chassis.motors.rightMiniCIM", 3);
+
 				  // Kicker
 					// Left side CIM
           putPWMA("kicker.motors.leftCIM", 6);
@@ -286,7 +296,8 @@ public class IO {
 				 * Robot A
 				 */
 				{
-
+					putPCMA("defender.solenoid.forward", 6);
+					putPCMA("defender.solenoid.backward", 4);
 				}
 
 				/*

@@ -7,6 +7,7 @@ import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.Button;
 import org.usfirst.frc.team3316.robot.Robot;
 import org.usfirst.frc.team3316.robot.config.Config;
+import org.usfirst.frc.team3316.robot.config.Config.ConfigException;
 import org.usfirst.frc.team3316.robot.logger.DBugLogger;
 
 public class Joysticks {
@@ -30,15 +31,25 @@ public class Joysticks {
     }
   }
 
-
   Config config = Robot.config;
   DBugLogger logger = Robot.logger;
 
-  public Joysticks () {
+  private Joystick mLeftJoystick, mRightJoystick;
 
+  public Joysticks () throws ConfigException {
+    this.mLeftJoystick = new Joystick((int) this.config.get("joysticks.left"));
+    this.mRightJoystick = new Joystick((int) this.config.get("joysticks.right"));
   }
 
   public void initButtons () {
+    // TODO - Build
+  }
 
+  public double getLeftDriver () {
+    return this.mLeftJoystick.getY();
+  }
+
+  public double getRightDriver () {
+    return this.mRightJoystick.getY();
   }
 }

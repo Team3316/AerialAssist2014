@@ -11,6 +11,7 @@ import org.usfirst.frc.team3316.robot.humanIO.SDB;
 import org.usfirst.frc.team3316.robot.logger.DBugLogger;
 import org.usfirst.frc.team3316.robot.robotIO.Actuators;
 import org.usfirst.frc.team3316.robot.robotIO.Sensors;
+import org.usfirst.frc.team3316.robot.subsystems.Chassis;
 import org.usfirst.frc.team3316.robot.subsystems.kicker.Kicker;
 import org.usfirst.frc.team3316.robot.subsystems.kicker.KickerManager;
 
@@ -41,6 +42,7 @@ public class Robot extends IterativeRobot {
    * Subsystems
    */
   public static Kicker kicker;
+  public static Chassis chassis;
 
   Command autonomousCommand;
 
@@ -72,6 +74,7 @@ public class Robot extends IterativeRobot {
        * Subsystems
        */
       kicker = new Kicker();
+      chassis = new Chassis();
 
       /*
        * Human IO (that requires subsystems)
