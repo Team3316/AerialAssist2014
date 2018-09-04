@@ -5,6 +5,7 @@ import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 import java.util.Timer;
+import org.usfirst.frc.team3316.robot.commands.sequences.InitTeleop;
 import org.usfirst.frc.team3316.robot.config.Config;
 import org.usfirst.frc.team3316.robot.humanIO.Joysticks;
 import org.usfirst.frc.team3316.robot.humanIO.SDB;
@@ -12,6 +13,7 @@ import org.usfirst.frc.team3316.robot.logger.DBugLogger;
 import org.usfirst.frc.team3316.robot.robotIO.Actuators;
 import org.usfirst.frc.team3316.robot.robotIO.Sensors;
 import org.usfirst.frc.team3316.robot.subsystems.Chassis;
+import org.usfirst.frc.team3316.robot.subsystems.Defender;
 import org.usfirst.frc.team3316.robot.subsystems.kicker.Kicker;
 import org.usfirst.frc.team3316.robot.subsystems.kicker.KickerManager;
 
@@ -43,6 +45,7 @@ public class Robot extends IterativeRobot {
    */
   public static Kicker kicker;
   public static Chassis chassis;
+  public static Defender defender;
 
   Command autonomousCommand;
 
@@ -69,6 +72,7 @@ public class Robot extends IterativeRobot {
        */
       actuators = new Actuators();
       sensors = new Sensors();
+      defender = new Defender();
 
       /*
        * Subsystems
@@ -105,6 +109,7 @@ public class Robot extends IterativeRobot {
 
   public void teleopInit () {
     if (autonomousCommand != null) autonomousCommand.cancel();
+    new InitTeleop().start();
   }
 
   public void disabledInit () {
