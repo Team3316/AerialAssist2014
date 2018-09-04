@@ -298,6 +298,10 @@ public class IO {
 				{
 					putPCMA("defender.solenoid.forward", 6);
 					putPCMA("defender.solenoid.backward", 4);
+					putPCMA("gripper.solenoid.forward", 5);
+					putPCMA("gripper.solenoid.backward", 7);
+					putPCMA("claw.solenoid.forward", 1);
+					putPCMA("claw.solenoid.backward", 0);
 				}
 
 				/*

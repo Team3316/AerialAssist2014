@@ -14,6 +14,7 @@ import org.usfirst.frc.team3316.robot.robotIO.Actuators;
 import org.usfirst.frc.team3316.robot.robotIO.Sensors;
 import org.usfirst.frc.team3316.robot.subsystems.Chassis;
 import org.usfirst.frc.team3316.robot.subsystems.Defender;
+import org.usfirst.frc.team3316.robot.subsystems.Gripper;
 import org.usfirst.frc.team3316.robot.subsystems.kicker.Kicker;
 import org.usfirst.frc.team3316.robot.subsystems.kicker.KickerManager;
 
@@ -46,6 +47,7 @@ public class Robot extends IterativeRobot {
   public static Kicker kicker;
   public static Chassis chassis;
   public static Defender defender;
+  public static Gripper gripper;
 
   Command autonomousCommand;
 
@@ -73,6 +75,7 @@ public class Robot extends IterativeRobot {
       actuators = new Actuators();
       sensors = new Sensors();
       defender = new Defender();
+      gripper = new Gripper();
 
       /*
        * Subsystems
@@ -91,6 +94,7 @@ public class Robot extends IterativeRobot {
       sdb = new SDB();
       sdb.timerInit();
     } catch (Exception e) {
+      System.out.println(e);
       logger.severe(e);
     }
   }

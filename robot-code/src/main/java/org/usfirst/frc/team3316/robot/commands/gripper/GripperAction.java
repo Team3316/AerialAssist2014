@@ -1,14 +1,14 @@
-package org.usfirst.frc.team3316.robot.commands.defender;
+package org.usfirst.frc.team3316.robot.commands.gripper;
 
 import org.usfirst.frc.team3316.robot.Robot;
 import org.usfirst.frc.team3316.robot.commands.DBugCommand;
 import org.usfirst.frc.team3316.robot.config.Config.ConfigException;
 
-public class DefenderAction extends DBugCommand {
-  private DefenderActionType type;
+public class GripperAction extends DBugCommand {
+  private GripperActionType type;
 
-  public DefenderAction (DefenderActionType type) {
-    requires(Robot.defender);
+  public GripperAction (GripperActionType type) {
+    requires(Robot.gripper);
     this.type = type;
   }
 
@@ -19,16 +19,16 @@ public class DefenderAction extends DBugCommand {
 
   @Override
   protected void execute () {
-    if (this.type == DefenderActionType.CLOSE) {
-      Robot.defender.close();
+    if (this.type == GripperActionType.EXTEND) {
+      Robot.gripper.extendGripper();
     } else {
-      Robot.defender.open();
+      Robot.gripper.retractGripper();
     }
   }
 
   @Override
   protected boolean isFinished () {
-    return true;
+    return false;
   }
 
   @Override

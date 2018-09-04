@@ -35,12 +35,18 @@ public class Actuators {
    */
   public DoubleSolenoid defenderSolenoid;
 
+  /**
+   * Gripper
+   */
+  public DoubleSolenoid gripperSolenoid, clawSolenoid;
+
   public Actuators () throws ConfigException {
     if (config.robotA) {
       this.generalActuatorsA();
       this.kickerActuatorsA();
       this.chassisActuatorsA();
       this.defenderActuatorsA();
+      this.gripperActuatorsA();
     }
   }
 
@@ -62,6 +68,18 @@ public class Actuators {
     this.defenderSolenoid = new DoubleSolenoid(
         (int) config.get("defender.solenoid.forward"),
         (int) config.get("defender.solenoid.backward")
+    );
+  }
+
+  private void gripperActuatorsA () throws ConfigException {
+    this.gripperSolenoid = new DoubleSolenoid(
+        (int) config.get("gripper.solenoid.forward"),
+        (int) config.get("gripper.solenoid.backward")
+    );
+
+    this.clawSolenoid = new DoubleSolenoid(
+        (int) config.get("claw.solenoid.forward"),
+        (int) config.get("claw.solenoid.backward")
     );
   }
 
