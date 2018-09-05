@@ -18,5 +18,8 @@ public class KickSequence extends DBugCommandGroup {
     addSequential(new WaitCommand(0.3));
     addSequential(new KickerKick());
     addSequential(new KickerZero());
+    addSequential(new WaitCommand(0.3));
+    addSequential(new DefenderAction(DefenderActionType.CLOSE));
+    addParallel(new ClawAction(GripperActionType.RETRACT));
   }
 }

@@ -15,6 +15,7 @@ import org.usfirst.frc.team3316.robot.commands.kicker.KickerKick;
 import org.usfirst.frc.team3316.robot.commands.kicker.KickerShaken;
 import org.usfirst.frc.team3316.robot.commands.kicker.KickerZero;
 import org.usfirst.frc.team3316.robot.commands.sequences.CollectSequence;
+import org.usfirst.frc.team3316.robot.commands.sequences.EjectSequence;
 import org.usfirst.frc.team3316.robot.commands.sequences.KickSequence;
 import org.usfirst.frc.team3316.robot.config.Config;
 import org.usfirst.frc.team3316.robot.config.Config.ConfigException;
@@ -123,9 +124,11 @@ public class SDB {
     SmartDashboard.putData("Kicker Kick", new KickerKick());
     SmartDashboard.putData("Kicker Zero", new KickerZero());
     SmartDashboard.putData("Kicker Shaken", new KickerShaken());
-    SmartDashboard.putData("Kick Sequence", new KickSequence());
 
+    SmartDashboard.putData("Kick Sequence", new KickSequence());
     SmartDashboard.putData("Collect Sequence", new CollectSequence());
+    SmartDashboard.putData("Eject Sequence", new EjectSequence());
+
     SmartDashboard.putData("Extend Gripper", new GripperAction(GripperActionType.EXTEND));
     SmartDashboard.putData("Retract Gripper", new GripperAction(GripperActionType.RETRACT));
     SmartDashboard.putData("Eject ball", new GripperAction(GripperActionType.ROLLOUT));
