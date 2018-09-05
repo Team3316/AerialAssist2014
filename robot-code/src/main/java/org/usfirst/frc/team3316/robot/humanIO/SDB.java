@@ -34,6 +34,10 @@ public class SDB {
       /*
        * Insert put methods here
        */
+      put("Is ball in", Robot.gripper.isBallIn());
+      put("Left MS", Robot.sensors.gripperLeftSwitch.get());
+      put("Middle MS", Robot.sensors.gripperMiddleSwitch.get());
+      put("Right MS", Robot.sensors.gripperRightSwitch.get());
     }
 
     private void put (String name, double d) {

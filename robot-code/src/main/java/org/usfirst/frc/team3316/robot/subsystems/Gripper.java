@@ -56,9 +56,8 @@ public class Gripper extends DBugSubsystem {
   }
 
   public boolean isBallIn () {
-    boolean isLeft = Robot.sensors.gripperLeftSwitch.get();
     boolean isMiddle = Robot.sensors.gripperMiddleSwitch.get();
     boolean isRight = Robot.sensors.gripperRightSwitch.get();
-    return isLeft && isMiddle && isRight;
+    return isMiddle && isRight;
   }
 }
