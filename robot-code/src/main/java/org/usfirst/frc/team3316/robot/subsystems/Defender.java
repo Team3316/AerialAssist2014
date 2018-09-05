@@ -1,12 +1,11 @@
 package org.usfirst.frc.team3316.robot.subsystems;
 
-import edu.wpi.first.wpilibj.DoubleSolenoid;
 import edu.wpi.first.wpilibj.DoubleSolenoid.Value;
 import org.usfirst.frc.team3316.robot.Robot;
 
 public class Defender extends DBugSubsystem {
-  private DoubleSolenoid.Value closeValue = Value.kForward;
-  private DoubleSolenoid.Value openValue = Value.kReverse;
+  private Value closeValue = Value.kForward;
+  private Value openValue = Value.kReverse;
 
   @Override
   public void initDefaultCommand () {

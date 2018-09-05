@@ -9,6 +9,7 @@ import java.util.Map.Entry;
 import java.util.Set;
 import java.util.TimerTask;
 import org.usfirst.frc.team3316.robot.Robot;
+import org.usfirst.frc.team3316.robot.commands.defender.DefenderActionType;
 import org.usfirst.frc.team3316.robot.commands.gripper.GripperAction;
 import org.usfirst.frc.team3316.robot.commands.gripper.GripperActionType;
 import org.usfirst.frc.team3316.robot.commands.kicker.KickerKick;
@@ -17,6 +18,7 @@ import org.usfirst.frc.team3316.robot.commands.kicker.KickerZero;
 import org.usfirst.frc.team3316.robot.commands.sequences.CollectSequence;
 import org.usfirst.frc.team3316.robot.commands.sequences.EjectSequence;
 import org.usfirst.frc.team3316.robot.commands.sequences.KickSequence;
+import org.usfirst.frc.team3316.robot.commands.tusks.TusksAction;
 import org.usfirst.frc.team3316.robot.config.Config;
 import org.usfirst.frc.team3316.robot.config.Config.ConfigException;
 import org.usfirst.frc.team3316.robot.logger.DBugLogger;
@@ -132,6 +134,7 @@ public class SDB {
     SmartDashboard.putData("Extend Gripper", new GripperAction(GripperActionType.EXTEND));
     SmartDashboard.putData("Retract Gripper", new GripperAction(GripperActionType.RETRACT));
     SmartDashboard.putData("Eject ball", new GripperAction(GripperActionType.ROLLOUT));
+    SmartDashboard.putData("Open tusks", new TusksAction(DefenderActionType.OPEN));
 
     logger.info("Finished initSDB()");
   }

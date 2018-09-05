@@ -313,6 +313,11 @@ public class IO {
 
 					putPCMA("claw.solenoid.forward", 1);
 					putPCMA("claw.solenoid.backward", 0);
+
+					putCANA("pcm.12v.port", 1);
+					// SECOND PCM ID IS id - 9!!!
+					putPCMA("tusks.solenoid.forward", 10);
+					putPCMA("tusks.solenoid.backward", 9);
 				}
 
 				/*

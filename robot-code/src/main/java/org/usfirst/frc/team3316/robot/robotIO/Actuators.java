@@ -41,6 +41,11 @@ public class Actuators {
   public DoubleSolenoid gripperSolenoid, clawSolenoid;
   public Talon gripperLeft, gripperRight;
 
+  /**
+   * Tusks
+   */
+  public DoubleSolenoid tusksSolenoid;
+
   public Actuators () throws ConfigException {
     if (config.robotA) {
       this.generalActuatorsA();
@@ -48,6 +53,7 @@ public class Actuators {
       this.chassisActuatorsA();
       this.defenderActuatorsA();
       this.gripperActuatorsA();
+      this.tusksActuatorsA();
     }
   }
 
@@ -85,6 +91,14 @@ public class Actuators {
 
     this.gripperLeft = new Talon((int) config.get("gripper.motors.left"));
     this.gripperRight = new Talon((int) config.get("gripper.motors.right"));
+  }
+
+  private void tusksActuatorsA () throws ConfigException {
+    this.tusksSolenoid = new DoubleSolenoid(
+        (int) config.get("pcm.12v.port"),
+        (int) config.get("tusks.solenoid.forward") - 9,
+        (int) config.get("tusks.solenoid.backward") - 9
+    );
   }
 
   private void generalActuatorsA () throws ConfigException {
