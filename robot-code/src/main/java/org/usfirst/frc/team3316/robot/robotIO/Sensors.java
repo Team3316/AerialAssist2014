@@ -3,6 +3,7 @@
  */
 package org.usfirst.frc.team3316.robot.robotIO;
 
+import edu.wpi.first.wpilibj.AnalogInput;
 import edu.wpi.first.wpilibj.CounterBase.EncodingType;
 import edu.wpi.first.wpilibj.DigitalInput;
 import edu.wpi.first.wpilibj.Encoder;
@@ -26,6 +27,7 @@ public class Sensors
 	 * Gripper
 	 */
 	public DigitalInput gripperLeftSwitch, gripperMiddleSwitch, gripperRightSwitch;
+	public AnalogInput ballIR;
 
 	public Sensors () throws ConfigException {
 		if (config.robotA) {
@@ -50,5 +52,6 @@ public class Sensors
 		this.gripperLeftSwitch = new DigitalInput((int) config.get("gripper.switches.left"));
 		this.gripperMiddleSwitch = new DigitalInput((int) config.get("gripper.switches.middle"));
 		this.gripperRightSwitch = new DigitalInput((int) config.get("gripper.switches.right"));
+		this.ballIR = new AnalogInput((int) config.get("gripper.ir.port"));
 	}
 }

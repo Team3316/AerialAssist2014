@@ -4,8 +4,8 @@ import edu.wpi.first.wpilibj.DoubleSolenoid.Value;
 import org.usfirst.frc.team3316.robot.Robot;
 
 public class Tusks extends DBugSubsystem {
-  private Value openValue = Value.kForward;
-  private Value closeValue = Value.kReverse;
+  private Value openValue = Value.kReverse;
+  private Value closeValue = Value.kForward;
 
   @Override
   public void initDefaultCommand () {

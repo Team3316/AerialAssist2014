@@ -41,6 +41,7 @@ public class SDB {
       put("Left MS", Robot.sensors.gripperLeftSwitch.get());
       put("Middle MS", Robot.sensors.gripperMiddleSwitch.get());
       put("Right MS", Robot.sensors.gripperRightSwitch.get());
+      put("Ball IR", Robot.sensors.ballIR.getAverageValue());
     }
 
     private void put (String name, double d) {

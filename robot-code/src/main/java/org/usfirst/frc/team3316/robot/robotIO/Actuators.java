@@ -104,5 +104,9 @@ public class Actuators {
   private void generalActuatorsA () throws ConfigException {
     this.compressor = new Compressor(0);
     this.compressor.setClosedLoopControl(true);
+
+    // Needed for PCM initialization
+    Compressor noCompressor = new Compressor(1);
+    noCompressor.setClosedLoopControl(false);
   }
 }

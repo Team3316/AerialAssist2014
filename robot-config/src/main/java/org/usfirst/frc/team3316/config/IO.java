@@ -271,6 +271,7 @@ public class IO {
 				 * Robot A
 				 */
 				{
+					putAIOA("gripper.ir.port", 1);
 				}
 
 				/*

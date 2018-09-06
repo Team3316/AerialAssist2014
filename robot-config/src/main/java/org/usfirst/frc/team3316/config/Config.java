@@ -169,7 +169,7 @@ public class Config {
        */
       {
         addToConstants("gripper.collection.voltage", 0.82);
-        addToConstants("gripper.ejection.voltage", -0.82);
+        addToConstants("gripper.ejection.voltage", -0.45);
       }
     }
   }

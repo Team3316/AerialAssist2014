@@ -5,16 +5,18 @@ import org.usfirst.frc.team3316.robot.commands.DBugCommand;
 import org.usfirst.frc.team3316.robot.config.Config.ConfigException;
 
 public class GripperAction extends DBugCommand {
+  private long startTime, delay;
   private GripperActionType type;
 
   public GripperAction (GripperActionType type) {
     requires(Robot.gripper);
     this.type = type;
+    this.delay = (long) 2000; // 2 seconds in milliseconds
   }
 
   @Override
   protected void init () throws ConfigException {
-
+    this.startTime = System.currentTimeMillis();
   }
 
   @Override
@@ -43,9 +45,10 @@ public class GripperAction extends DBugCommand {
 
   @Override
   protected boolean isFinished () {
+    long err = System.currentTimeMillis() - this.startTime;
     switch (this.type) {
-      case ROLLIN: return Robot.gripper.isBallIn();
-      case ROLLOUT: return !Robot.gripper.isBallIn();
+      case ROLLIN: return Robot.gripper.isBallIn() && err >= this.delay;
+      case ROLLOUT: return !Robot.gripper.isBallIn() && err >= this.delay;
       default: return true;
     }
   }
@@ -64,6 +67,6 @@ public class GripperAction extends DBugCommand {
 
   @Override
   protected void interr () {
-
+    this.fin();
   }
 }
