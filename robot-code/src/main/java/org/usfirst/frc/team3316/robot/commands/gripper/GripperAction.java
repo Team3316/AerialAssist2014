@@ -11,7 +11,7 @@ public class GripperAction extends DBugCommand {
   public GripperAction (GripperActionType type) {
     requires(Robot.gripper);
     this.type = type;
-    this.delay = (long) 2000; // 2 seconds in milliseconds
+    this.delay = (long) 3000; // 2 seconds in milliseconds
   }
 
   @Override
